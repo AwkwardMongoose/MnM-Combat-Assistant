@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M&M Calculators</title>
+    <link href="styles.css" rel="stylesheet">
+    <script src="scripts.js" defer></script>
+</head>
+<body style="background-color: gray;">
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'damage-calculator-tab')" >Damage</button>
+        <button class="tablinks" onclick="openCity(event, 'knockback-calculator-tab')">Knockback</button>
+        <button class="tablinks" onclick="openCity(event, 'throwing-calculator-tab')">Throwing</button>
+        <button class="tablinks" onclick="openCity(event, 'condition-dictionary-tab')" id="defaultOpen">Conditions</button>
+      </div>
+      <div class="tab2">&nbsp;</div>
+
+<!-- DAMAGE CALCULATOR BEGINS -->
+
+    <table class="tabcontent" id="damage-calculator-tab" style="margin: auto; text-align: center;">
+        <tr height="25px" style="border-top: 10px;">
+            <th class="header" style="width: 1%;">
+                &nbsp;
+            </th>
+            <th class="header" style="border-right: 3px solid black;">
+                Toughness Save
+            </th>
+            <th class="header" style="border-left: 3px solid black;">
+                Damage DC
+            </th>
+            <th class="header" style="width: 5%;">
+                &nbsp;
+            </th>
+            <th class="header" style="width: 15%;">
+                Conditions
+            </th>
+            <th class="header" id="condition-1" style="width: 23%;">
+                
+            </th>
+            <th class="header" id="condition-2" style="width: 23%;">
+                
+            </th>
+            <th class="header" id="condition-3" style="width: 23%;">
+                
+            </th>
+        </tr>
+        <tr height="30px">
+            <td rowspan="2" style="height: 60px;">
+                &nbsp;
+            </td>
+            <td class="inputfield" style="border-right:3px; height: 60px;" rowspan="2">
+                <input class="damage-input" type="number" min="-99" max="99" maxlength="2" style="height: 60px; text-align: center; margin: auto; font-size: 20px;" value="0" id="toughness-save-input" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+            </td>
+            <td class="inputfield" style="border-left:3px;" rowspan="2">
+                <input class="damage-input" type="number" min="-99" max="99" maxlength="2" style="height: 60px; text-align: center; margin: auto; font-size: 20px;" value="0" id="damage-DC-input" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+            </td>
+            <td class="header">
+                Non-lethal
+            </td>
+            <td class="content-background">
+                <div style="overflow: auto; font-size: 14px;" id="condition-list-nonlethal">No Effect</div>
+            </td>
+            <td class="content-background" rowspan="2">
+                <div class="content-text" style="overflow: auto; font-size: 13px; height: 120px;" id="condition-content-1"></div>
+            </td>
+            <td class="content-background" rowspan="2">
+                <div class="content-text" style="overflow: auto; font-size: 13px; height: 120px;" id="condition-content-2"></div>
+            </td>
+            <td class="content-background" rowspan="2" height="30px;">
+                <div class="content-text" style="overflow: auto; font-size: 13px; height: 120px;" id="condition-content-3"></div>
+            </td>
+        </tr>
+        <tr height="30px">
+            <td class="header">
+                Lethal
+            </td>
+            <td class="content-background">
+                <div style="overflow: auto; font-size: 14px;" id="condition-list-lethal">No Effect</div>
+            </td>
+        </tr>
+        <tr height="10px">
+            <td colspan="1">
+                <div style="height: 10px;">&nbsp;</div>
+            </td>
+            <td colspan="2">
+
+            </td>
+            <td colspan="6">
+                <div style="height: 10px;">&nbsp;</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+    </table>
+    <div class="tabcontent" id="test-tab1">Test 2</div>
+
+<!-- KNOCKBACK CALCULATOR BEGINS -->
+
+    <table class="tabcontent" id="knockback-calculator-tab" style="margin: auto; text-align: center; border-collapse: collapse;">
+        <tr style="margin: auto; text-align: center;">
+            <th class="headerKBStart"></th>
+            <th class="superheaderKB" colspan="2">Attacker</th>
+            <th class="headerKBBlank"></th>
+            <th class="superheaderKB" colspan="5">Defender</th>
+            <th class="headerKBBlank"></th>
+            <th class="headerKBDistance"></th>
+        </tr>        
+        <tr style="margin: auto; text-align: center;">
+            <td class="headerKBStart"></th>
+            <td class="headerKB">Damage Bonus</th>
+            <td class="headerKB">Knockback Bonus</th>
+            <td class="headerKBBlank"></th>
+            <td class="headerKB">Toughness</th>
+            <td class="headerKB">Impervious Toughness</th>
+            <td class="headerKBSize">Size</th>
+            <td class="headerKB">Immovable Rank</th>
+            <td class="headerKB">Knockback Defense Total</th>
+            <td class="headerKBBlank"></th>
+            <td class="headerKBDistance">Knockback Distance</th>
+        </tr>
+        <tr style="border: none;">
+            <td>
+                &nbsp;
+            </td>
+
+            <td class="kb-row-background">
+                <input class="kb-input" type="number" value="0" id="kb-damage-bonus" maxlength="2" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+            </td>
+            
+            <td class="kb-row-background">
+                <input class="kb-input" type="number" value="0" id="kb-knockback-bonus" maxlength="2" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+            </td>
+            
+            <td>
+                &nbsp;
+            </td>
+            
+            <td class="kb-row-background">
+                <input class="kb-input" type="number" value="0" id="kb-toughness-bonus" maxlength="2" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+            </td>
+                
+            <td class="kb-row-background">
+                <input class="kb-input" type="number" value="0" id="kb-impervious-bonus" maxlength="2" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+            </td>
+            
+            <td class="inputfield">
+                <select style="width: 200px; height: 50px; text-align: center; margin: auto; font-size: 20px; background: lightgray; font-weight: bold; border-collapse: collapse;" id="size-select">
+                    <option value=-5>Miniscule</option>
+                    <option value=-4>Fine</option>
+                    <option value=-3>Diminutive</option>
+                    <option value=-2>Tiny</option>
+                    <option value=-1>Small</option>
+                    <option value=0 selected="selected">Medium</option>
+                    <option value=4>Large</option>
+                    <option value=8>Huge</option>
+                    <option value=12>Gargantuan</option>
+                    <option value=16>Colossal</option>
+                    <option value=20>Awesome</option>
+                </select>
+            </td>
+
+            <td class="kb-row-background">
+                <input class="kb-input" type="number" value="0" id="kb-immovable-bonus" maxlength="2" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+            </td>
+
+            <td class="kb-row-background-disabled">
+                <input class="kb-total" type="number" value="0" id="kb-total-bonus" disabled>
+            </td>
+
+            <td>
+                &nbsp;
+            </td>
+
+            <td>
+                <input class="kb-distance" type="text" value="None" id="kb-distance-output" disabled>
+            </td>
+        </tr>
+        <tr height="10px">
+            <td colspan="3">
+                <div style="height: 10px;">&nbsp;</div>
+            </td>
+            <td colspan="5" style="width:100px">
+                <button id="reset-knockback" style="width: 40%; font-size: 18px; font-weight: bold; background: lightgrey; height: 50px; border-radius: 10px; padding: 10px;">Clear All</button>
+            </td>
+            <td colspan="2">
+                <div style="height: 10px;">&nbsp;</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+    </table>
+
+    <!-- THROWING CALCULATOR BEGINS -->
+
+    <table class="tabcontent" id="throwing-calculator-tab" style="margin: auto; text-align: center; border-collapse: collapse;">
+        <tr>
+            <th class="throwing-header-blank" style="width: 30px;"></th>
+
+            <th class="throwing-header1">Weight</th>
+
+            <th class="throwing-header-blank"></th>
+            
+            <th class="throwing-header-blank"></th>
+            
+            <th class="throwing-header2">Strength</th>
+
+            <th class="throwing-header-blank"></th>
+
+            <th class="throwing-header3">Throwing Distance</th>
+    
+            <th class="throwing-header-blank"></th>
+        </tr>
+        <tr style="background: grey;">
+            <td style="background: black;">
+                &nbsp;
+            </td>
+
+            <td style="border-right: none;">
+                <input class="throw-input" type="number" style="width: 95%;" value="0" id="throw-weight" maxlength="26" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+            </td>
+
+            <td class="inputfield" style="border-left: none; width: 80px;">
+                <select class="throw-input" style="width: 70px; height: 44px; text-align: center; margin: auto; font-size: 20px; background: lightgray; font-weight: bold; border: black 2px solid;" id="weight-class">
+                    <option value=0>lbs.</option>
+                    <option value=1>tons</option>
+                </select>
+            </td>
+
+            <td style="background: black;">
+                &nbsp;
+            </td>
+
+            <td>
+                <input class="throw-input" type="number" style="width: 85%;" value="10" id="throw-strength" maxlength="3" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+            </td>
+
+            <td style="background: black;">
+                &nbsp;
+            </td>
+
+            <td style="width: 900px;">
+                <input class="throw-distance" type="text" value="0 ft." id="throw-distance-output" disabled>
+            </td>
+
+            <td style="background: black;">
+                &nbsp;
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="6" style="height: 20px">
+
+            </td>
+        </tr>
+
+    </table>
+    <table class="tabcontent" id="condition-dictionary-tab" style="margin: auto; text-align: center; border-collapse: collapse;">
+        <tr>
+            <th class="conditions-header-blank"></th>
+            <th class="conditions-header">Conditon</th>
+            <th></th>
+            <th class="conditions-header">Definition</th>
+            <th class="conditions-header-blank"></th>
+        </tr>
+        <tr>
+            <td></td>
+
+            <td class="conditions-td">
+                <input type="text" id="condition-search" onkeyup="conditionSearchBar()" placeholder="Search..." title="Type in a name">
+                <ul id="condition-list" class="conditions-list">
+                    <li>
+                        <input type="radio" id="cond-ability-damage" name="conditions" />
+                        <label for="cond-ability-damage">Ability Damage</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="cond-blinded" name="conditions" />
+                        <label for="cond-blinded">Blinded</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="cond-bruised" name="conditions" />
+                        <label for="cond-bruised">Bruised</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="cond-dazed" name="conditions" />
+                        <label for="cond-dazed">Dazed</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="cond-dead" name="conditions" />
+                        <label for="cond-dead">Dead</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="cond-deafened" name="conditions" />
+                        <label for="cond-deafened">Deafened</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-debilitated" name="conditions" />
+                        <label for="cond-debilitated">Debilitated</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-disabled" name="conditions" />
+                        <label for="cond-disabled">Disabled</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-dying" name="conditions" />
+                        <label for="cond-dying">Dying</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-entangled" name="conditions" />
+                        <label for="cond-entangled">Entangled</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-exhausted" name="conditions" />
+                        <label for="cond-exhausted">Exhausted</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-fascinated" name="conditions" />
+                        <label for="cond-fascinated">Fascinated</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-fatigued" name="conditions" />
+                        <label for="cond-fatigued">Fatigued</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-flatfooted" name="conditions" />
+                        <label for="cond-flatfooted">Flat-Footed</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-frightened" name="conditions" />
+                        <label for="cond-frightened">Frightened</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-grappled" name="conditions" />
+                        <label for="cond-grappled">Grappled</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-helpless" name="conditions" />
+                        <label for="cond-helpless">Helpless</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-incorporeal" name="conditions" />
+                        <label for="cond-incorporeal">Incorporeal</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-injured" name="conditions" />
+                        <label for="cond-injured">Injured</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-invisible" name="conditions" />
+                        <label for="cond-invisible">Invisible</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-nauseated" name="conditions" />
+                        <label for="cond-nauseated">Nauseated</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-normal" name="conditions" />
+                        <label for="cond-normal">Normal</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-panicked" name="conditions" />
+                        <label for="cond-panicked">Panicked</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-paralyzed" name="conditions" />
+                        <label for="cond-paralyzed">Paralyzed</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-pinned" name="conditions" />
+                        <label for="cond-pinned">Pinned</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-prone" name="conditions" />
+                        <label for="cond-prone">Prone</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-shaken" name="conditions" />
+                        <label for="cond-shaken">Shaken</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-sickened" name="conditions" />
+                        <label for="cond-sickened">Sickened</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-slowed" name="conditions" />
+                        <label for="cond-slowed">Slowed</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-stable" name="conditions" />
+                        <label for="cond-stable">Stable</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-staggered" name="conditions" />
+                        <label for="cond-staggered">Staggered</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-stunned" name="conditions" />
+                        <label for="cond-stunned">Stunned</label>
+                    </li>                    <li>
+                        <input type="radio" id="cond-unconscious" name="conditions" />
+                        <label for="cond-unconscious">Unconscious</label>
+                    </li>
+                </ul>
+            </td>
+
+            <td style="width: 20px;"></td>
+
+            <td class="conditions-definitions">
+                <p class="conditions-definitions-div" id="condition-definition-display"></p>
+            </td>
+            
+            <td style="width: 20px;"></td>
+        </tr>
+        <tr>
+            <td colspan="5" style="height:30px;">
+
+            </td>
+        </tr>
+        </table>
+</body>
+</html>

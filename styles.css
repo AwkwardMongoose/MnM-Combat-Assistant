@@ -1,0 +1,484 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    scrollbar-width: thin;
+}
+
+  .content-text::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color: #aaa; /* or add it to the track */
+  }
+  
+  /* Add a thumb */
+  .content-text::-webkit-scrollbar-thumb {
+      background: #000;
+  }
+
+  .conditions-list::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    border-left: black solid 2px;
+    background-color: #333; /* or add it to the track */
+  }
+  
+  /* Add a thumb */
+  .conditions-list::-webkit-scrollbar-thumb {
+      background: rgb(0, 5, 73);
+      border-left: black solid 2px;
+  }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+table {
+    border: 1px solid black;
+    background: black;
+    overflow: auto;
+    scrollbar-width: thin;
+    margin: auto;
+}
+
+th {
+    border: 1px solid black;
+    background: black;
+    margin: auto;
+}
+
+tr {
+    border: 1px solid black;
+}
+
+td {
+    border: 1px solid black;
+    margin: auto;
+}
+
+.inputfield {
+    width: auto;
+}
+
+.header {
+    background: black;
+    border: 1px solid black;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    height: 25px;
+    margin: auto;
+    text-align: center;
+    width: auto;
+}
+
+.headerKB {
+    background: black;
+    border: 1px solid black;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    margin: auto;
+    text-align: center;
+    width: 8%;
+}
+
+.throwing-header1 {
+    background: black;
+    border: 1px solid black;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    margin: auto;
+    text-align: center;
+    width: 300px;
+}
+
+.throwing-header2 {
+    background: black;
+    border: 1px solid black;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    margin: auto;
+    text-align: center;
+    width: 100px;
+}
+
+.throwing-header3 {
+    background: black;
+    border: 1px solid black;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    margin: auto;
+    text-align: center;
+    width: 600px;
+}
+
+.throwing-header-blank {
+    background: black;
+    border: 1px solid black;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    margin: auto;
+    text-align: center;
+    width: 20px;
+}
+
+.superheaderKB {
+    background: black;
+    border: 1px solid black;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    margin: auto;
+    text-align: center;
+    width: 8%;
+}
+
+.headerKBBlank {
+    background: black;
+    border: 1px solid black;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    margin: auto;
+    text-align: center;
+    width: 2%;
+}
+
+.headerKBSize {
+    background: black;
+    border: 1px solid black;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    margin: auto;
+    text-align: center;
+    width: 10%;
+}
+
+.headerKBDistance {
+    background: black;
+    border: 1px solid black;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    margin: auto;
+    text-align: center;
+}
+
+.headerKBStart {
+    background: black;
+    border: 1px solid black;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    margin: auto;
+    text-align: center;
+    width: 1%;
+}
+
+.kb-input {
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    margin: auto;
+    font-size: 18px;
+    font-weight: bold;
+    border-collapse: collapse;
+    border: black 2px solid;
+}
+
+.throw-input {
+    height: 40px;
+    text-align: center;
+    margin: auto;
+    font-size: 18px;
+    font-weight: bold;
+    border: black 2px solid;
+}
+
+.kb-total {
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    margin: auto;
+    font-size: 18px;
+    font-weight: bold;
+    border-collapse: collapse;
+    border: black 2px solid;
+    background-color: darkgrey;
+    color: black;
+}
+
+.kb-distance {
+    width: 600px;
+    height: 40px;
+    text-align: center;
+    margin: auto;
+    font-size: 18px;
+    font-weight: bold;
+    border-collapse: collapse;
+    border: black 2px solid;
+    background-color: darkgrey;
+    color: black;
+}
+
+.throw-distance {
+    width: 95%;
+    height: 40px;
+    text-align: center;
+    margin: auto;
+    font-size: 18px;
+    font-weight: bold;
+    border-collapse: collapse;
+    border: black 2px solid;
+    background-color: lightgrey;
+    color: black;
+}
+
+.kb-row-background {
+    background-color: gray;
+    border-collapse: collapse;
+    border-left: none;
+    border-right: none;
+    padding: 3px;
+}
+
+.kb-row-background-disabled {
+    background-color: black;
+    border-collapse: collapse;
+    border-left: none;
+    border-right: none;
+    padding: 3px;
+}
+
+.content-background {
+    background: darkgray;
+    font-weight: bold;
+    overflow: auto;
+    margin: auto;
+}
+
+.content-text {
+    margin: auto;
+    padding: 6px;
+    scrollbar-width: thin;
+}
+
+
+/* TAB SELECTOR */
+
+.tab {
+    overflow: auto;
+    background-color: rgb(32, 32, 32);
+    text-align: center;
+    margin: auto;
+    width: 75%;
+    border-collapse: collapse;
+  }
+
+  .tab2 {
+    overflow: auto;
+    border-collapse: collapse;
+    background-color: black;
+    text-align: center;
+    margin: auto;
+    width: 75%;
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    border-right: 3px solid black;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    margin: auto;
+    font-weight: bold;
+    color: white;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: rgb(85, 85, 85);
+    color: #000;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: rgb(5, 0, 46);
+    color: white;
+  }
+  
+  .tabcontent {
+      height: auto;
+      width: 75%;
+  }
+
+
+  /* SEARCH STUFF */
+
+  .conditions-td {
+      width: 20%;
+      height: 400px;
+      text-align: center;
+      margin: auto;
+  }
+
+  .conditions-list {
+    width: 100%;
+    height: 400px;
+    overflow: auto;
+    margin: auto;
+}
+
+ .conditions-header {
+    background: black;
+    border: 1px solid black;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    margin: auto;
+    text-align: center;
+ }
+
+ .conditions-definitions {
+     color: black;
+     background-color: lightgray;
+     font-size: 16px;
+     font-weight: bold;
+     text-align: center;
+     vertical-align: top;
+     width: 1100px;
+ }
+
+  .conditions-definitions-div {
+     color: black;
+     background-color: lightgray;
+     font-size: 16px;
+     margin: 20px;
+     width: 985px;
+     font-weight: bold;
+     text-align: left;
+     vertical-align: top;
+     text-indent: 6ch;
+ }
+
+
+
+
+  * {
+    box-sizing: border-box;
+  }
+  
+  #condition-search {
+    background-color:darkgrey;
+    width: 100%;
+    font-size: 16px;
+    height: 30px;
+    padding: 12px 12px 12px 12px;
+    border: 6px solid black;
+    border-top: 1px solid black;
+    border-radius: 8px;
+    margin: auto;
+    color: black;
+  }
+
+
+  #condition-search::placeholder {
+    color: black;
+  }
+  
+  
+ /* #condition-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #condition-list li a {
+    border: 1px solid #ddd;
+    margin-top: -1px; /* Prevent double borders *//*
+    background-color: #f6f6f6;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block
+  }
+  
+  /*#condition-list li a:hover:not(.header) {
+    background-color: #eee;
+  }*/
+
+  .conditions-header-blank {
+      width: 30px;
+  }
+
+
+  .conditions-list {
+    list-style-type:none;
+    margin:auto;
+    padding:0;
+    color: black;
+    font-weight: bold;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.conditions-list li {
+    
+    
+   
+   height:40px;
+   position:relative;
+}
+
+.conditions-list label, .conditions-list input {
+   display:block;
+   position:absolute;
+   top:0;
+   left:0;
+   right:0;
+   bottom:0;
+}
+
+.conditions-list input[type="radio"] {
+   opacity:0.011;
+   z-index:100;
+}
+
+.conditions-list input[type="radio"]:checked + label {
+   background:gray;
+   color: black;
+   border: 3px solid black;
+   border-left: 10px solid rgb(0, 0, 73);
+   padding: 10px 10px 10px 10px;
+   
+}
+
+.conditions-list label {
+    padding: 10px 10px 10px 10px;
+    border:1px solid black; 
+    cursor:pointer;
+    background-color: #555;
+    z-index:90;
+    margin: auto;
+    vertical-align: middle;
+}
+
+.conditions-list label:hover {
+    background:#555;
+}
